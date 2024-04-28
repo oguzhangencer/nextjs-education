@@ -1,8 +1,13 @@
+import styles from "./styles.module.css";
 import BlogCard from "@/components/BlogCard";
-export default function Home() {
+import Data from "@/data/posts.json";
+
+export default async function Home() {
   return (
-    <div>
-      <BlogCard />
+    <div className={styles.blogsContainer}>
+      {Data.posts.map((post) => (
+        <BlogCard key={post.id} {...post} />
+      ))}
     </div>
   );
 }
