@@ -1,7 +1,9 @@
+import Header from "@/components/Header";
 import "../styles/global.css";
 
-import styles from "./style.module.css";
 import { Inter } from "next/font/google";
+import Footer from "@/components/Footer";
+import styles from "./style.module.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -14,13 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr" className={inter.className}>
       <body className={styles.container}>
-        <header>
-          <p>Header</p>
-        </header>
+        <Header />
         <main>{children}</main>
-        <footer>
-          <p>Footer</p>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
