@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
 import BlogCard from "@/components/BlogCard";
-// import Data from "@/data/posts.json";
 
 async function getPosts() {
   const response = await fetch("https://dummyjson.com/posts?limit=10");
@@ -9,6 +8,7 @@ async function getPosts() {
 
 export default async function Home() {
   const posts = await getPosts();
+  console.log(posts);
   return (
     <div className={styles.blogsContainer}>
       {posts.posts.map((post) => (
