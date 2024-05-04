@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import React from "react";
 import styles from "./styles.module.css";
@@ -8,6 +9,10 @@ async function getPosts(id) {
 
 export default async function Page({ params }) {
   const { id, title, body } = await getPosts(params.id);
+
+  if (!title) {
+    return notFound();
+  }
 
   return (
     <div className={styles.blogContainer}>
