@@ -3,8 +3,12 @@ import Image from "next/image";
 import React from "react";
 import styles from "./styles.module.css";
 async function getPosts(id) {
-  const response = await fetch(`https://dummyjson.com/posts/${id}`);
-  return response.json();
+  try {
+    const response = await fetch(`https://dummyjson.com/posts/${id}`);
+    return response.json();
+  } catch (error) {
+    throw new Error(error);
+  }
 }
 
 export default async function Page({ params }) {
